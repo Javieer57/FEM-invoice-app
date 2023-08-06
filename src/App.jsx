@@ -1,34 +1,38 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { FiltersDropdown } from "./components/FiltersDropdown";
+import { NewInvoiceBtn } from "./components/NewInvoiceBtn";
+import { InvoiceItem } from "./components/InvoiceItem";
+import Data from "../public/assets/data.json";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <main className="mx-auto w-full max-w-[31.25rem] py-9 tablet:max-w-[42rem] tablet:py-16 desktop:max-w-[45.625rem] desktop:py-20">
+      <header className="mb-8 flex items-center justify-between tablet:mb-14 desktop:mb-16">
+        <div>
+          <h1 className="text-2xl font-bold tablet:mb-2 tablet:text-4xl">
+            Invoices
+          </h1>
+          <p className="text-sm font-medium text-gray200">
+            <span className="sr-only tablet:not-sr-only">There are</span> 4{" "}
+            <span className="sr-only tablet:not-sr-only">total</span> invoices
+          </p>
+        </div>
+
+        <div className="flex items-center gap-4 tablet:gap-10">
+          <FiltersDropdown />
+          <NewInvoiceBtn />
+        </div>
+      </header>
+
+      <section>
+        <ul className="grid gap-4">
+          {Data.map((invoice) => (
+            <li key={invoice.id}>
+              <InvoiceItem invoice={invoice} />
+            </li>
+          ))}
+        </ul>
+      </section>
+    </main>
   );
 }
 

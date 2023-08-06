@@ -27,6 +27,9 @@ export default {
         tablet: "768px",
         desktop: "1024px",
       },
+      boxShadow: {
+        DEFAULT: "0 10px 20px 0 rgba(72,84,159,0.25)",
+      },
     },
   },
   plugins: [],
