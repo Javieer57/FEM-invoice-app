@@ -1,0 +1,74 @@
+.invoice-item {
+  @apply grid justify-between rounded-md bg-white shadow-md;
+  border: 1px solid transparent;
+  grid-template-areas: "id name" "due status" "total status";
+  grid-template-rows: 2.5rem minmax(1.5rem, auto) auto;
+  column-gap: 0.625rem;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    @apply border-purple900;
+    cursor: pointer;
+  }
+
+  &-id {
+    grid-area: id;
+  }
+  &-name {
+    grid-area: name;
+    justify-self: end;
+  }
+  &-due {
+    grid-area: due;
+  }
+  &-total {
+    grid-area: total;
+  }
+  &-status {
+    grid-area: status;
+    align-self: center;
+  }
+  &-arrow {
+    grid-area: arrow;
+  }
+
+  @screen tablet {
+    @apply items-center;
+    grid-template-rows: auto;
+    gap: 0.625rem;
+    grid-template-areas: "id due name total status arrow";
+    grid-template-columns:
+      12.33%
+      21.31%
+      21.95%
+      12.66%
+      21.47%
+      2.24%;
+
+    &-name {
+      justify-self: start;
+    }
+
+    &-total {
+      justify-self: end;
+    }
+
+    &-status {
+      justify-self: end;
+    }
+
+    &-arrow {
+      justify-self: end;
+    }
+  }
+
+  @screen desktop {
+    grid-template-columns:
+      13.79%
+      20.91%
+      20.91%
+      14.24%
+      19.88%
+      2.07%;
+  }
+}
