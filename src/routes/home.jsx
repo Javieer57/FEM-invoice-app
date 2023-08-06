@@ -1,9 +1,9 @@
-import { FiltersDropdown } from "./components/FiltersDropdown";
-import { NewInvoiceBtn } from "./components/NewInvoiceBtn";
-import { InvoiceItem } from "./components/InvoiceItem";
-import Data from "../public/assets/data.json";
+import { FiltersDropdown } from "../components/FiltersDropdown";
+import { NewInvoiceBtn } from "../components/NewInvoiceBtn";
+import { InvoiceItem } from "../components/InvoiceItem";
+import Data from "../assets/data.json";
 
-function App() {
+export const Home = () => {
   return (
     <main className="mx-auto w-full max-w-[31.25rem] py-9 tablet:max-w-[42rem] tablet:py-16 desktop:max-w-[45.625rem] desktop:py-20">
       <header className="mb-8 flex items-center justify-between tablet:mb-14 desktop:mb-16">
@@ -34,6 +34,4 @@ function App() {
       </section>
     </main>
   );
-}
-
-export default App;
+};
