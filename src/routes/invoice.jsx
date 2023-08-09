@@ -37,7 +37,7 @@ const invoice = {
 
 export const InvoicePage = () => {
   return (
-    <main className="mx-auto w-full max-w-[31.25rem] py-9 tablet:max-w-[42rem] tablet:py-16 desktop:max-w-[45.625rem] desktop:py-20">
+    <div className="mx-auto w-full max-w-[31.25rem] py-9 tablet:max-w-[42rem] tablet:py-16 desktop:max-w-[45.625rem] desktop:py-20">
       <nav>
         <Link
           to="/"
@@ -70,7 +70,7 @@ export const InvoicePage = () => {
 
         <ServicesTable invoice={invoice} />
       </section>
-    </main>
+    </div>
   );
 };
 
