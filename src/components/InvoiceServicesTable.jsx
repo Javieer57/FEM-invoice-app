@@ -13,8 +13,8 @@ export const ServicesTable = ({ invoice }) => {
 
 const TableHead = () => {
   return (
-    <thead>
-      <tr className="table-heading">
+    <thead className="table-heading">
+      <tr>
         <th className="text-left">Item Name</th>
         <th className="text-center">
           <abbr title="quantity" className="no-underline">
@@ -66,7 +66,7 @@ const TableFooter = ({ total }) => {
   return (
     <tfoot className="table-footer">
       <tr>
-        <td className="text-sm" colSpan={colPadding}>
+        <td className="text-sm font-medium" colSpan={colPadding}>
           Grand Total
         </td>
         <td className="text-right text-2xl font-bold">
