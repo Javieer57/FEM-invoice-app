@@ -37,15 +37,16 @@ const invoice = {
 
 export const InvoicePage = () => {
   return (
-    <div className="mx-auto w-full max-w-[31.25rem] py-9 tablet:max-w-[42rem] tablet:py-16 desktop:max-w-[45.625rem] desktop:py-20">
+    <div className="mx-auto w-full max-w-[31.25rem] px-6 py-9 tablet:max-w-[42rem] tablet:px-0 tablet:py-16 desktop:max-w-[45.625rem] desktop:py-20">
       <nav className="mb-8">
         <GoBack />
       </nav>
 
-      <header className="mb-4 rounded-lg bg-white p-6 tablet:mb-6 tablet:flex tablet:items-center tablet:justify-between">
+      <header className="mb-4 rounded-lg bg-white p-6 shadow-light tablet:mb-6 tablet:flex tablet:items-center tablet:justify-between">
         <InvoiceHeader invoice={invoice} />
       </header>
-      <section className="rounded-lg bg-white p-6 text-purple300">
+
+      <section className="mb-28 rounded-lg bg-white p-6 text-purple300 shadow-light">
         <div className="mb-10 grid grid-cols-2 gap-8 font-medium tablet:grid-cols-4">
           <InvoiceDetailsSummary invoice={invoice} />
         </div>

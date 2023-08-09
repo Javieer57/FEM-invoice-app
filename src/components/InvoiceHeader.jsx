@@ -23,7 +23,7 @@ const Actions = ({ invoice }) => {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 flex flex-wrap items-center gap-2 bg-white px-6 py-5 tablet:static tablet:gap-4 tablet:p-0">
+    <div className="fixed bottom-0 left-0 right-0 flex flex-wrap items-center gap-2 bg-white px-6 py-5 shadow-light tablet:static tablet:gap-4 tablet:p-0 tablet:shadow-none">
       <PillBtn onClick={action} color={"lightPurple"}>
         Edit
       </PillBtn>

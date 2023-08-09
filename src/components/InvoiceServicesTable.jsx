@@ -36,7 +36,7 @@ const TableBody = ({ items }) => {
       {items.map((item, index) => (
         <tr key={index}>
           <td className="text-left">
-            {item?.name}
+            <span className="break-normal">{item?.name}</span>
             <br />
             <span className="text-purple300 tablet:hidden">
               {item?.quantity} x {formatToCurrency(item?.price)}

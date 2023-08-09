@@ -5,7 +5,7 @@ import Data from "../assets/data.json";
 
 export const Home = () => {
   return (
-    <div className="mx-auto w-full max-w-[31.25rem] py-9 tablet:max-w-[42rem] tablet:py-16 desktop:max-w-[45.625rem] desktop:py-20">
+    <div className="mx-auto w-full max-w-[31.25rem] px-6 py-9 tablet:max-w-[42rem] tablet:px-0 tablet:py-16 desktop:max-w-[45.625rem] desktop:py-20">
       <header className="mb-8 flex items-center justify-between tablet:mb-14 desktop:mb-16">
         <div>
           <h1 className="text-2xl font-bold tablet:mb-2 tablet:text-4xl">
