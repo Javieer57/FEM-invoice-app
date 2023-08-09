@@ -59,12 +59,114 @@ export const InvoicePage = () => {
         {/* <div>edit delete mark as paid</div> */}
       </header>
 
-      <section className="rounded-lg bg-white p-6">
-        {/* #XM9141 Graphic Design 19 Union Terrace London E1 3EZ United Kingdom
-        Invoice Date Bill To 21 Aug 2021 Alex Grim Payment Due 84 Church Way
-        Bradford BD1 9PB United Kingdom 20 Sep 2021 Sent to alexgrim@mail.com */}
+      <section className="rounded-lg bg-white p-6 text-purple300">
+        <div className="mb-10 grid grid-cols-2 gap-8 font-medium tablet:grid-cols-4">
+          <Description invoice={invoice} />
+          <SenderAddress invoice={invoice} />
+          <Dates invoice={invoice} />
+          <ClientAddress invoice={invoice} />
+          <Email invoice={invoice} />
+        </div>
+
         <ServicesTable invoice={invoice} />
       </section>
     </main>
+  );
+};
+
+const Description = ({ invoice }) => {
+  return (
+    <div className="col-start-1 col-end-3">
+      <p className="mb-1 font-bold">
+        <span className="sr-only">Invoice id:</span> #
+        <span className="text-darkblue900">{invoice?.id}</span>
+      </p>
+      <p>
+        <span className="sr-only">Invoice description:</span>
+        {invoice?.description}
+      </p>
+    </div>
+  );
+};
+
+const SenderAddress = ({ invoice }) => {
+  return (
+    <address className="col-start-1 col-end-3 flex flex-col not-italic tablet:col-start-3 tablet:col-end-5 tablet:text-right">
+      <p className="sr-only">Sender address:</p>
+
+      <p>
+        <span className="sr-only">street:</span>
+        {invoice?.senderAddress?.street}
+      </p>
+      <p>
+        <span className="sr-only">city:</span>
+        {invoice?.senderAddress?.city}
+      </p>
+      <p>
+        <span className="sr-only">post code:</span>
+        {invoice?.senderAddress?.postCode}
+      </p>
+      <p>
+        <span className="sr-only">country:</span>
+        {invoice?.senderAddress?.country}
+      </p>
+    </address>
+  );
+};
+
+const Dates = ({ invoice }) => {
+  return (
+    <div className="flex flex-col gap-7">
+      <p className="flex flex-col gap-3">
+        Invoice Date
+        <span className="font-bold text-darkblue900">{invoice?.createdAt}</span>
+      </p>
+
+      <p className="flex flex-col gap-3">
+        Payment Due
+        <span className="font-bold text-darkblue900">
+          {invoice?.paymentDue}
+        </span>
+      </p>
+    </div>
+  );
+};
+
+const ClientAddress = ({ invoice }) => {
+  return (
+    <address className="flex flex-col not-italic">
+      <p className="mb-2 flex flex-col gap-3">
+        Bill To
+        <span className="font-bold text-darkblue900">
+          {invoice?.clientName}
+        </span>
+      </p>
+
+      <p>
+        <span className="sr-only">street:</span>
+        {invoice?.clientAddress?.street}
+      </p>
+      <p>
+        <span className="sr-only">city:</span>
+        {invoice?.clientAddress?.city}
+      </p>
+      <p>
+        <span className="sr-only">post code:</span>
+        {invoice?.clientAddress?.postCode}
+      </p>
+      <p>
+        <span className="sr-only">country:</span>
+        {invoice?.clientAddress?.country}
+      </p>
+    </address>
+  );
+};
+
+const Email = ({ invoice }) => {
+  return (
+    <p className="flex flex-col gap-3">
+      Sent to
+      <span className="font-bold text-darkblue900">{invoice?.clientEmail}</span>
+    </p>
   );
 };
