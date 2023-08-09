@@ -1,0 +1,9 @@
+.filter-checkbox {
+  @apply relative;
+
+  &:checked::after {
+    @apply absolute h-full w-full bg-center bg-no-repeat;
+    content: "";
+    background-image: url("/assets/icon-check.svg");
+  }
+}
