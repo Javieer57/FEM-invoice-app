@@ -1,0 +1,155 @@
+.invoice-details-table {
+  th,
+  td {
+    @apply break-all;
+  }
+
+  @apply w-full overflow-hidden rounded-lg bg-purple100;
+
+  /* Mobile styles */
+
+  /* hide quantity and price columns */
+  .table-heading th,
+  .table-body td {
+    &:nth-child(2),
+    &:nth-child(3) {
+      @apply hidden;
+    }
+  }
+
+  .table-heading th {
+    @apply text-sm;
+    &:first-child,
+    &:last-child {
+      @apply sr-only;
+    }
+  }
+
+  .table-body {
+    @apply font-bold;
+
+    tr {
+      td {
+        @apply py-3;
+
+        /* extra padding to first and last cell  */
+        &:first-child {
+          @apply pl-6;
+        }
+
+        &:last-child {
+          @apply pr-6;
+        }
+      }
+
+      &:first-child td {
+        @apply pt-6;
+      }
+
+      &:last-child td {
+        @apply pb-6;
+      }
+    }
+  }
+
+  .table-footer {
+    @apply bg-darkblue500 text-white;
+
+    td {
+      @apply w-1/2 py-6;
+
+      /* extra padding to first and last cell  */
+      &:first-child {
+        @apply pl-6;
+      }
+
+      &:last-child {
+        @apply pr-6;
+      }
+    }
+  }
+
+  /* tablet styles */
+  @screen tablet {
+    /* show quantity and price columns */
+    .table-heading th,
+    .table-body td {
+      &:nth-child(2),
+      &:nth-child(3) {
+        @apply table-cell;
+      }
+    }
+
+    /* custom columns width */
+    .table-heading th,
+    .table-body td,
+    .table-footer td {
+      &:nth-child(1) {
+        @apply w-[308px];
+      }
+
+      &:nth-child(2) {
+        @apply w-[101px];
+      }
+
+      &:nth-child(3) {
+        @apply w-[101px];
+      }
+
+      &:nth-child(4) {
+        @apply w-[172px];
+      }
+    }
+
+    .table-heading th {
+      @apply pb-4 pt-8 font-medium text-purple300;
+
+      &:first-child {
+        @apply not-sr-only pb-4 pl-8 pt-8;
+      }
+
+      &:last-child {
+        @apply not-sr-only pb-4 pr-8 pt-8;
+      }
+    }
+
+    .table-body {
+      tr {
+        td {
+          @apply py-4;
+
+          /* extra padding to first and last cell  */
+          &:first-child {
+            @apply pl-8;
+          }
+
+          &:last-child {
+            @apply pr-8;
+          }
+        }
+
+        &:first-child td {
+          @apply pt-4;
+        }
+
+        &:last-child td {
+          @apply pb-8;
+        }
+      }
+    }
+
+    .table-footer {
+      td {
+        @apply w-auto py-8;
+
+        &:first-child {
+          @apply pl-8;
+        }
+
+        &:last-child {
+          @apply pr-8;
+        }
+      }
+    }
+  }
+}

@@ -1,13 +1,9 @@
 import { Link } from "react-router-dom";
 import { StatusBadge } from "./StatusBadge";
+import { useCurrency } from "../hooks/useCurrency";
 
 export const InvoiceItem = ({ invoice }) => {
-  const formatToCurrency = (value) => {
-    return new Intl.NumberFormat("en-GB", {
-      style: "currency",
-      currency: "GBP",
-    }).format(value);
-  };
+  const { formatToCurrency } = useCurrency();
 
   return (
     <article className="rounded-lg bg-white">
