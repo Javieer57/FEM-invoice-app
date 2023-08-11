@@ -1,16 +1,13 @@
+import { Link } from "react-router-dom";
 import { StatusBadge } from "./StatusBadge";
+import { useCurrency } from "../hooks/useCurrency";
 
 export const InvoiceItem = ({ invoice }) => {
-  const formatToCurrency = (value) => {
-    return new Intl.NumberFormat("en-GB", {
-      style: "currency",
-      currency: "GBP",
-    }).format(value);
-  };
+  const { formatToCurrency } = useCurrency();
 
   return (
-    <article>
-      <a href="#" className=" invoice-item rounded-lg bg-white p-6">
+    <article className="rounded-lg bg-white">
+      <Link to={`/invoice/${invoice?.id}`} className="invoice-item p-6">
         <p className="invoice-item-id font-bold">
           <span className="text-purple300">#</span>
           {invoice?.id}
@@ -32,7 +29,7 @@ export const InvoiceItem = ({ invoice }) => {
           src="/assets/icon-arrow-right.svg"
           alt="arrow right"
         />
-      </a>
+      </Link>
     </article>
   );
 };

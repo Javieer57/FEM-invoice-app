@@ -1,5 +1,5 @@
 .invoice-item {
-  @apply grid justify-between rounded-md bg-white shadow-md;
+  @apply grid justify-between rounded-md bg-white shadow-light;
   border: 1px solid transparent;
   grid-template-areas: "id name" "due status" "total status";
   grid-template-rows: 2.5rem minmax(1.5rem, auto) auto;
