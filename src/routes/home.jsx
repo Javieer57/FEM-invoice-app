@@ -1,7 +1,6 @@
 import { FiltersDropdown } from "../components/FiltersDropdown";
 import { NewInvoiceBtn } from "../components/NewInvoiceBtn";
-import { InvoiceItem } from "../components/InvoiceItem";
-import Data from "../assets/data.json";
+import { InvoicesList } from "../components/InvoicesList";
 
 export const Home = () => {
   return (
@@ -23,15 +22,7 @@ export const Home = () => {
         </div>
       </header>
 
-      <section>
-        <ul className="grid gap-4">
-          {Data.map((invoice) => (
-            <li key={invoice.id}>
-              <InvoiceItem invoice={invoice} />
-            </li>
-          ))}
-        </ul>
-      </section>
+      <InvoicesList />
     </div>
   );
 };
