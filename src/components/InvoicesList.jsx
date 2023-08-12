@@ -1,17 +1,16 @@
-import Data from "../assets/data.json";
+import { useInvoices } from "../hooks/useInvoices";
 import { InvoiceItem } from "./InvoiceItem";
 
 export const InvoicesList = () => {
-  const invoices = Data;
-  //   const invoices = [];
+  const { visibleInvoices } = useInvoices();
 
   return (
     <section>
-      {invoices.length === 0 ? (
+      {visibleInvoices.length === 0 ? (
         <EmptyList />
       ) : (
         <ul className="grid gap-4">
-          {Data.map((invoice) => (
+          {visibleInvoices.map((invoice) => (
             <li key={invoice.id}>
               <InvoiceItem invoice={invoice} />
             </li>
