@@ -1,8 +1,9 @@
 import { Popover, Transition } from "@headlessui/react";
 import { FilterCheckbox } from "./FilterCheckbox";
+import { useSelector } from "react-redux";
 
 export const FiltersDropdown = () => {
-  const filters = ["draft", "pending", "paid"];
+  const filters = useSelector((state) => state.invoices.filters);
 
   return (
     <Popover className="relative w-fit">
