@@ -1,41 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ServicesTable } from "../components/InvoiceServicesTable";
 import { InvoiceDetailsSummary } from "../components/InvoiceDetailsSummary";
 import { InvoiceHeader } from "../components/InvoiceHeader";
-
-const invoice = {
-  id: "RT3080",
-  createdAt: "2021-08-18",
-  paymentDue: "2021-08-19",
-  description: "Re-branding",
-  paymentTerms: 1,
-  clientName: "Jensen Huang",
-  clientEmail: "jensenh@mail.com",
-  status: "paid",
-  senderAddress: {
-    street: "19 Union Terrace",
-    city: "London",
-    postCode: "E1 3EZ",
-    country: "United Kingdom",
-  },
-  clientAddress: {
-    street: "106 Kendell Street",
-    city: "Sharrington",
-    postCode: "NR24 5WQ",
-    country: "United Kingdom",
-  },
-  items: [
-    {
-      name: "Brand Guidelines",
-      quantity: 1,
-      price: 1800.9,
-      total: 1800.9,
-    },
-  ],
-  total: 1800.9,
-};
+import { useInvoices } from "../hooks/useInvoices";
 
 export const InvoicePage = () => {
+  const { invoiceId } = useParams();
+  const { getInvoiceById } = useInvoices();
+  const invoice = getInvoiceById(invoiceId);
+
   return (
     <div className="mx-auto w-full max-w-[31.25rem] px-6 py-9 tablet:max-w-[42rem] tablet:px-0 tablet:py-16 desktop:max-w-[45.625rem] desktop:py-20">
       <nav className="mb-8">

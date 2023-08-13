@@ -7,7 +7,7 @@ export const InvoiceHeader = ({ invoice }) => {
       <div className="flex w-full items-center justify-between gap-5 font-medium text-gray200 tablet:w-auto tablet:justify-start tablet:gap-3">
         Status
         <div>
-          <StatusBadge status="pending" />
+          <StatusBadge status={invoice?.status} />
         </div>
       </div>
 

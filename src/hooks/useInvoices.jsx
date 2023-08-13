@@ -7,6 +7,10 @@ export const useInvoices = () => {
   const activeFilters = filters.filter((filter) => filter.active);
   const [visibleInvoices, setVisibleInvoices] = useState([]);
 
+  const getInvoiceById = (invoiceId) => {
+    return Invoices.find((invoice) => invoice.id === invoiceId);
+  };
+
   useEffect(() => {
     // if there are no active filters, show all invoices
     // otherwise, show only invoices that match the active filters
@@ -38,5 +42,5 @@ export const useInvoices = () => {
     );
   };
 
-  return { visibleInvoices, visibleInvoicesCopy };
+  return { visibleInvoices, visibleInvoicesCopy, getInvoiceById };
 };
