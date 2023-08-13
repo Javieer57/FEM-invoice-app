@@ -1,6 +1,6 @@
-export const TextInput = ({ label, placeholder, id }) => {
+export const TextInput = ({ label, placeholder, id, className }) => {
   return (
-    <div>
+    <div className={className}>
       {label && (
         <label
           htmlFor={id}
