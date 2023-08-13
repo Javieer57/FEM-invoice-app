@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./styles/index.scss";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
-import { ErrorPage, Home, InvoicePage, Root } from "./routes";
+import { ErrorPage, Home, InvoicePage, Root, Test } from "./routes";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "invoice/:invoiceId",
         element: <InvoicePage />,
+      },
+      {
+        path: "test",
+        element: <Test />,
       },
     ],
   },
