@@ -1,8 +1,10 @@
 import { Link, useParams } from "react-router-dom";
-import { ServicesTable } from "../components/InvoiceServicesTable";
-import { InvoiceDetailsSummary } from "../components/InvoiceDetailsSummary";
-import { InvoiceHeader } from "../components/InvoiceHeader";
 import { useInvoices } from "../hooks/useInvoices";
+import {
+  ServicesTable,
+  InvoiceDetailsSummary,
+  InvoiceHeader,
+} from "../components";
 
 export const InvoicePage = () => {
   const { invoiceId } = useParams();
