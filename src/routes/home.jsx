@@ -1,7 +1,5 @@
-import { FiltersDropdown } from "../components/FiltersDropdown";
-import { NewInvoiceBtn } from "../components/NewInvoiceBtn";
-import { InvoicesList } from "../components/InvoicesList";
-import { useInvoices } from "../hooks/useInvoices";
+import { FiltersDropdown, NewInvoiceBtn, InvoicesList } from "../components";
+import { useInvoices } from "../hooks";
 
 export const Home = () => {
   const { visibleInvoicesCopy } = useInvoices();
