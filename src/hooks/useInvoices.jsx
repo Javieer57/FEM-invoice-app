@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import Invoices from "../assets/data.json";
 
 export const useInvoices = () => {
   const filters = useSelector((state) => state.invoices.filters);
   const activeFilters = filters.filter((filter) => filter.active);
   const [visibleInvoices, setVisibleInvoices] = useState([]);
+  const Invoices = useSelector((state) => state.invoices.invoices);
 
   const getInvoiceById = (invoiceId) => {
     return Invoices.find((invoice) => invoice.id === invoiceId);
