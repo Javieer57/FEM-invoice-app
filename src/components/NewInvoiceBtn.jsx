@@ -1,6 +1,13 @@
+import { useForms } from "../hooks/useForms";
+
 export const NewInvoiceBtn = () => {
+  const { setOpenNewForm } = useForms();
+
   return (
-    <button className="flex items-center gap-4 rounded-full bg-purple900 p-2 pr-4 font-bold transition-colors hover:bg-purple400 focus:bg-purple400">
+    <button
+      className="flex items-center gap-4 rounded-full bg-purple900 p-2 pr-4 font-bold transition-colors hover:bg-purple400 focus:bg-purple400"
+      onClick={() => setOpenNewForm(true)}
+    >
       <span className="flex items-center justify-center rounded-full bg-white p-3">
         <img src="/assets/icon-plus.svg" alt="plus icon" />
       </span>
