@@ -1,4 +1,4 @@
-import { TextInput, Select } from "./inputs";
+import { TextInput, Select, DatePicker } from "./inputs";
 
 const paymentTerms = [
   { id: 1, name: "Net 1 Day" },
@@ -63,7 +63,7 @@ const BillTo = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-6 tablet:grid-cols-2">
-          <Select label="Invoice Date" options={paymentTerms} />
+          <DatePicker label="Invoice Date" />
 
           <Select
             label="Payment Terms"

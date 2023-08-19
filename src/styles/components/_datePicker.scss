@@ -1,0 +1,110 @@
+.date-picker .react-datepicker {
+  font-family: "League Spartan", sans-serif !important;
+  @apply rounded-lg border-none shadow;
+
+  &-wrapper {
+    @apply w-full;
+  }
+
+  &__input-container {
+    input {
+      @apply relative w-full rounded-[0.25rem] border-2 border-purple200 bg-white px-5 py-4 text-left font-bold hover:border-purple900 focus:border-purple900 focus:outline-none;
+    }
+
+    &::before {
+      @apply pointer-events-none absolute right-5 top-1/2 z-10 h-5 w-5 -translate-y-1/2 bg-contain bg-no-repeat p-0 opacity-50;
+      content: "";
+      background-image: url("/assets/icon-calendar.svg");
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-within {
+      &::before {
+        @apply opacity-100;
+      }
+    }
+  }
+
+  &__tab-loop {
+    .react-datepicker {
+      &__triangle {
+        @apply hidden;
+      }
+
+      &__navigation {
+        @apply top-6 h-5 w-5;
+
+        &--next {
+          @apply right-6;
+        }
+
+        &--previous {
+          @apply left-6;
+        }
+
+        &-icon {
+          &::before {
+            @apply top-3;
+          }
+
+          &--next {
+            @apply left-0;
+          }
+
+          &--previous {
+            @apply right-0;
+          }
+        }
+      }
+
+      &__month-container {
+        @apply px-5 pb-8 pt-6;
+      }
+
+      &__month {
+        @apply m-0;
+      }
+
+      &__navigation-icon--previous::before {
+        @apply border-purple900;
+      }
+
+      &__navigation-icon--next::before {
+        @apply border-purple900;
+      }
+
+      &__header {
+        @apply border-none bg-white p-0;
+      }
+
+      &__current-month {
+        @apply mb-8 text-darkblue900;
+      }
+
+      &__day-names {
+        @apply hidden;
+      }
+
+      &__day {
+        @apply font-bold;
+
+        &--selected {
+          @apply bg-purple900 text-white;
+        }
+
+        &--keyboard-selected {
+          @apply bg-transparent text-purple900;
+        }
+
+        &:hover {
+          @apply bg-transparent text-purple900;
+        }
+
+        &--outside-month {
+          @apply opacity-10;
+        }
+      }
+    }
+  }
+}
