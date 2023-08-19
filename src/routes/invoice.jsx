@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useInvoices } from "../hooks/useInvoices";
 import {
@@ -5,7 +6,6 @@ import {
   InvoiceDetailsSummary,
   InvoiceHeader,
 } from "../components";
-import { useEffect } from "react";
 
 export const InvoicePage = () => {
   const { invoiceId } = useParams();

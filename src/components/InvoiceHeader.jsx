@@ -30,9 +30,11 @@ const Actions = ({ invoice }) => {
       <PillBtn onClick={action} color={"orange"}>
         Delete
       </PillBtn>
-      <PillBtn onClick={action} color={"purple"}>
-        Mark as Paid
-      </PillBtn>
+      {invoice?.status !== "paid" && (
+        <PillBtn onClick={action} color={"purple"}>
+          Mark as Paid
+        </PillBtn>
+      )}
     </div>
   );
 };
