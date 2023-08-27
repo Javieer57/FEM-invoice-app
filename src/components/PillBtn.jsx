@@ -7,9 +7,10 @@ const pillBtnTheme = {
     "bg-purple900 text-white hover:bg-purple400 focus-visible:bg-purple400 transition-colors",
 };
 
-export const PillBtn = ({ children, onClick, color }) => {
+export const PillBtn = ({ children, onClick, color, type = "button" }) => {
   return (
     <button
+      type={type}
       onClick={onClick}
       className={`rounded-full px-6 py-4 font-bold ${pillBtnTheme[color]}`}
     >

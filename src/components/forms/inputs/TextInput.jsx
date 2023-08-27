@@ -1,4 +1,10 @@
-export const TextInput = ({ label, placeholder, id, className }) => {
+export const TextInput = ({
+  label,
+  placeholder,
+  id,
+  className,
+  register = () => {},
+}) => {
   return (
     <div className={className}>
       {label && (
@@ -11,7 +17,7 @@ export const TextInput = ({ label, placeholder, id, className }) => {
       )}
       <input
         id={id}
-        name="street_address"
+        {...register(id)}
         className="w-full rounded-[0.25rem] border-2 border-purple200 bg-white px-5 pb-3 pt-4 font-bold leading-4 hover:border-purple900 focus:border-purple900 focus:outline-none"
         placeholder={placeholder && `e.g. ${placeholder}`}
         type="text"
