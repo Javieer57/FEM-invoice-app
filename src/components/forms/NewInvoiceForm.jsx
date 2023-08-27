@@ -29,7 +29,7 @@ const BillFrom = () => {
         <TextInput label="Street Address" id="billFromStreet" />
 
         <div className="grid grid-cols-2 gap-6 tablet:grid-cols-3">
-          <TextInput label="City" name="billFromCity" />
+          <TextInput label="City" id="billFromCity" />
           <TextInput label="Post Code" id="billFromPostCode" />
           <TextInput
             className="col-span-2 tablet:col-span-1"
@@ -53,7 +53,7 @@ const BillTo = () => {
         <TextInput label="Street Address" id="billStreetAdress" />
 
         <div className="grid grid-cols-2 gap-6 tablet:grid-cols-3">
-          <TextInput label="City" name="billToCity" />
+          <TextInput label="City" id="billToCity" />
           <TextInput label="Post Code" id="billToPostCode" />
           <TextInput
             className="col-span-2 tablet:col-span-1"
