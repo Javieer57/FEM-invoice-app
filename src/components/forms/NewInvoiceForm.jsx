@@ -70,6 +70,7 @@ const BillTo = ({ register }) => {
         <TextInput
           label="Client's Email"
           id="billToEmail"
+          type="email"
           register={register}
         />
         <TextInput

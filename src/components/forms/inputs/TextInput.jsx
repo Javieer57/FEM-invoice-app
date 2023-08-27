@@ -3,7 +3,8 @@ export const TextInput = ({
   placeholder,
   id,
   className,
-  register = () => {},
+  type = "text",
+  register,
 }) => {
   return (
     <div className={className}>
@@ -20,7 +21,7 @@ export const TextInput = ({
         {...register(id)}
         className="w-full rounded-[0.25rem] border-2 border-purple200 bg-white px-5 pb-3 pt-4 font-bold leading-4 hover:border-purple900 focus:border-purple900 focus:outline-none"
         placeholder={placeholder && `e.g. ${placeholder}`}
-        type="text"
+        type={type}
       />
     </div>
   );
