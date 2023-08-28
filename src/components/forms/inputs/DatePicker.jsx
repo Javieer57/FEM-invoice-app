@@ -1,22 +1,16 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Controller, useFormContext } from "react-hook-form";
+import { useFormUtilities } from "../../../hooks";
 
 export const DatePicker = ({ label, id }) => {
-  const { control } = useFormContext();
   const datepicker = useRef(null);
+  const { control } = useFormContext();
+  const { formatDatePickerMonthYear } = useFormUtilities();
 
   const formatMonthYear = () => {
-    const calendar = datepicker.current;
-
-    const currentMonth = calendar.querySelector(
-      ".react-datepicker__current-month",
-    );
-    const month = currentMonth.textContent.slice(0, -4);
-    const monthAbbr = month.slice(0, 3);
-    const year = currentMonth.textContent.slice(-4);
-    currentMonth.innerHTML = `<abbr class="no-underline" title="${month}">${monthAbbr}</abbr> ${year}`;
+    formatDatePickerMonthYear(datepicker);
   };
 
   return (
