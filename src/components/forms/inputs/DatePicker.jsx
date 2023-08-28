@@ -1,9 +1,10 @@
 import { useState, useRef } from "react";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Controller, useFormContext } from "react-hook-form";
 
-export const DatePicker = ({ label }) => {
-  const [startDate, setStartDate] = useState(new Date());
+export const DatePicker = ({ label, id }) => {
+  const { control } = useFormContext();
   const datepicker = useRef(null);
 
   const formatMonthYear = () => {
@@ -27,15 +28,23 @@ export const DatePicker = ({ label }) => {
         {label}
       </label>
 
-      <div className="date-picker" ref={datepicker}>
-        <ReactDatePicker
-          dateFormat="dd MMM yyyy"
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-          onCalendarOpen={formatMonthYear}
-          onMonthChange={formatMonthYear}
-        />
-      </div>
+      <Controller
+        control={control}
+        name={id}
+        defaultValue={new Date()}
+        render={({ field: { onChange, value } }) => (
+          <div className="date-picker" ref={datepicker}>
+            <ReactDatePicker
+              closeOnScroll={true}
+              dateFormat="dd MMM yyyy"
+              selected={value}
+              onChange={onChange}
+              onCalendarOpen={formatMonthYear}
+              onMonthChange={formatMonthYear}
+            />
+          </div>
+        )}
+      />
     </div>
   );
 };

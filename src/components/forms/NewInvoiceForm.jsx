@@ -12,8 +12,20 @@ const paymentTerms = [
 export const NewInvoiceForm = () => {
   const methods = useForm();
 
+  function formatDateToDDMMYYYY(date) {
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+
+    return `${day}/${month}/${year}`;
+  }
+
   const onSubmit = (data) => {
-    console.table(data);
+    const formData = {
+      ...data,
+      billToInvoiceDate: formatDateToDDMMYYYY(data.billToInvoiceDate),
+    };
+    console.table(formData);
   };
 
   return (
@@ -74,6 +86,20 @@ const BillTo = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-6 tablet:grid-cols-2">
+          {/* <Controller
+            control={control}
+            name="fecha"
+            defaultValue={new Date()}
+            render={({ field: { onChange, value } }) => (
+              <DatePicker
+                selected={value}
+                onChange={onChange}
+                dateFormat="dd/MM/yyyy"
+                label="Invoice Date"
+                id="billToInvoiceDate"
+              />
+            )}
+          /> */}
           <DatePicker label="Invoice Date" id="billToInvoiceDate" />
 
           <Select
@@ -100,3 +126,43 @@ const Actions = () => {
     </div>
   );
 };
+
+// import React from "react";
+// import { useForm, Controller } from "react-hook-form";
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
+
+// export const NewInvoiceForm = () => {
+//   const { handleSubmit, control } = useForm();
+
+//   const onSubmit = (data) => {
+//     console.log(data);
+//     console.table({ data });
+//   };
+
+//   return (
+//     <div>
+//       <h1>Formulario con Selector de Fechas</h1>
+//       <form onSubmit={handleSubmit(onSubmit)}>
+//         <div>
+//           <label>Fecha:</label>
+//           <Controller
+//             control={control}
+//             name="fecha"
+//             defaultValue={new Date()}
+//             render={({ field: { onChange, value } }) => (
+//               <DatePicker
+//                 selected={value}
+//                 onChange={onChange}
+//                 dateFormat="dd/MM/yyyy"
+//               />
+//             )}
+//           />
+//         </div>
+//         <div>
+//           <button type="submit">Enviar</button>
+//         </div>
+//       </form>
+//     </div>
+//   );
+// };
