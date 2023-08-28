@@ -1,11 +1,14 @@
+import { useFormContext } from "react-hook-form";
+
 export const TextInput = ({
   label,
   placeholder,
   id,
   className,
   type = "text",
-  register,
 }) => {
+  const { register } = useFormContext();
+
   return (
     <div className={className}>
       {label && (

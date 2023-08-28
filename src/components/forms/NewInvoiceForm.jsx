@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { TextInput, Select, DatePicker } from "./inputs";
 import { PillBtn } from "../PillBtn";
 
@@ -10,7 +10,7 @@ const paymentTerms = [
 ];
 
 export const NewInvoiceForm = () => {
-  const { register, handleSubmit, errors } = useForm();
+  const methods = useForm();
 
   const onSubmit = (data) => {
     console.table(data);
@@ -20,39 +20,32 @@ export const NewInvoiceForm = () => {
     <div>
       <h2 className="mb-5 text-2xl font-bold">New Invoice</h2>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <BillFrom register={register} />
-        <BillTo register={register} />
-        <Actions />
-      </form>
+      <FormProvider {...methods}>
+        <form onSubmit={methods.handleSubmit(onSubmit)}>
+          <BillFrom />
+          <BillTo />
+          <Actions />
+        </form>
+      </FormProvider>
     </div>
   );
 };
 
-const BillFrom = ({ register }) => {
+const BillFrom = () => {
   return (
     <section>
       <h3 className="mb-6 font-bold text-purple900">Bill From</h3>
 
       <div className="mb-10 grid gap-6">
-        <TextInput
-          label="Street Address"
-          id="billFromStreet"
-          register={register}
-        />
+        <TextInput label="Street Address" id="billFromStreet" />
 
         <div className="grid grid-cols-2 gap-6 tablet:grid-cols-3">
-          <TextInput label="City" id="billFromCity" register={register} />
-          <TextInput
-            label="Post Code"
-            id="billFromPostCode"
-            register={register}
-          />
+          <TextInput label="City" id="billFromCity" />
+          <TextInput label="Post Code" id="billFromPostCode" />
           <TextInput
             className="col-span-2 tablet:col-span-1"
             label="Country"
             id="billFromCountry"
-            register={register}
           />
         </div>
       </div>
@@ -60,42 +53,28 @@ const BillFrom = ({ register }) => {
   );
 };
 
-const BillTo = ({ register }) => {
+const BillTo = () => {
   return (
     <section>
       <h3 className="mb-6 font-bold text-purple900">Bill To</h3>
 
       <div className="mb-10 grid gap-6">
-        <TextInput label="Client's Name" id="billToName" register={register} />
-        <TextInput
-          label="Client's Email"
-          id="billToEmail"
-          type="email"
-          register={register}
-        />
-        <TextInput
-          label="Street Address"
-          id="billStreetAdress"
-          register={register}
-        />
+        <TextInput label="Client's Name" id="billToName" />
+        <TextInput label="Client's Email" id="billToEmail" type="email" />
+        <TextInput label="Street Address" id="billStreetAdress" />
 
         <div className="grid grid-cols-2 gap-6 tablet:grid-cols-3">
-          <TextInput label="City" id="billToCity" register={register} />
-          <TextInput
-            label="Post Code"
-            id="billToPostCode"
-            register={register}
-          />
+          <TextInput label="City" id="billToCity" />
+          <TextInput label="Post Code" id="billToPostCode" />
           <TextInput
             className="col-span-2 tablet:col-span-1"
             label="Country"
             id="billToCountry"
-            register={register}
           />
         </div>
 
         <div className="grid grid-cols-1 gap-6 tablet:grid-cols-2">
-          <DatePicker label="Invoice Date" />
+          <DatePicker label="Invoice Date" id="billToInvoiceDate" />
 
           <Select
             label="Payment Terms"
@@ -104,11 +83,7 @@ const BillTo = ({ register }) => {
           />
         </div>
 
-        <TextInput
-          label="Project Description"
-          id="billToProjectDescription"
-          register={register}
-        />
+        <TextInput label="Project Description" id="billToProjectDescription" />
       </div>
     </section>
   );
