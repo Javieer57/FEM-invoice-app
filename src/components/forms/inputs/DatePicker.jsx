@@ -12,10 +12,10 @@ export const DatePicker = ({ label }) => {
     const currentMonth = calendar.querySelector(
       ".react-datepicker__current-month",
     );
-    const monthYear = currentMonth.textContent
-      .slice(0, 3)
-      .concat(" ", currentMonth.textContent.slice(-4));
-    currentMonth.textContent = monthYear;
+    const month = currentMonth.textContent.slice(0, -4);
+    const monthAbbr = month.slice(0, 3);
+    const year = currentMonth.textContent.slice(-4);
+    currentMonth.innerHTML = `<abbr class="no-underline" title="${month}">${monthAbbr}</abbr> ${year}`;
   };
 
   return (
