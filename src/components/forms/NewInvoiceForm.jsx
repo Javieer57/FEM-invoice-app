@@ -94,12 +94,15 @@ const BillTo = () => {
 
 const Actions = () => {
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between gap-2">
       <PillBtn color="lightPurple">Discard</PillBtn>
-      <button className="btn btn-outline">Save as Draft</button>
-      <PillBtn type="submit" color="purple">
-        Save & Send
-      </PillBtn>
+
+      <div className="space-x-2">
+        <PillBtn color="darkBlue">Save as Draft</PillBtn>
+        <PillBtn type="submit" color="purple">
+          Save & Send
+        </PillBtn>
+      </div>
     </div>
   );
 };

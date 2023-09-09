@@ -5,6 +5,8 @@ const pillBtnTheme = {
     "bg-orange600 text-white hover:bg-orange200 focus-visible:bg-orange200 transition-colors",
   purple:
     "bg-purple900 text-white hover:bg-purple400 focus-visible:bg-purple400 transition-colors",
+  darkBlue:
+    "bg-darkblue500 text-gray200 hover:bg-darkblue900 focus-visible:bg-darkblue900 transition-colors",
 };
 
 export const PillBtn = ({ children, onClick, color, type = "button" }) => {
