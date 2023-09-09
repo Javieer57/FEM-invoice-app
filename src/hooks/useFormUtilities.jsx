@@ -11,13 +11,23 @@ export const useFormUtilities = () => {
     currentMonth.innerHTML = `<abbr class="no-underline" title="${month}">${monthAbbr}</abbr> ${year}`;
   };
 
-  function formatDateToDDMMYYYY(date) {
+  const formatDateToDDMMYYYY = (date) => {
     const day = String(date.getDate()).padStart(2, "0");
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const year = date.getFullYear();
 
     return `${day}/${month}/${year}`;
-  }
+  };
 
-  return { formatDatePickerMonthYear, formatDateToDDMMYYYY };
+  const formatNewFormData = (data) => {
+    const formData = {
+      ...data,
+      billToInvoiceDate: formatDateToDDMMYYYY(data.billToInvoiceDate),
+      billToPaymentTerms: data.billToPaymentTerms.name.split(" ")[1],
+    };
+
+    return formData;
+  };
+
+  return { formatDatePickerMonthYear, formatDateToDDMMYYYY, formatNewFormData };
 };

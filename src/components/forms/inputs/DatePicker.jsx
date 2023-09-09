@@ -15,10 +15,7 @@ export const DatePicker = ({ label, id }) => {
 
   return (
     <div>
-      <label
-        htmlFor="date"
-        className="mb-2 text-sm font-semibold text-purple300"
-      >
+      <label htmlFor={id} className="mb-2 text-sm font-semibold text-purple300">
         {label}
       </label>
 
@@ -29,6 +26,7 @@ export const DatePicker = ({ label, id }) => {
         render={({ field: { onChange, value } }) => (
           <div className="date-picker" ref={datepicker}>
             <ReactDatePicker
+              id={id}
               closeOnScroll={true}
               dateFormat="dd MMM yyyy"
               selected={value}

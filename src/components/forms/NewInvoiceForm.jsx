@@ -12,13 +12,10 @@ const paymentTerms = [
 
 export const NewInvoiceForm = () => {
   const methods = useForm();
-  const { formatDateToDDMMYYYY } = useFormUtilities();
+  const { formatNewFormData } = useFormUtilities();
 
   const onSubmit = (data) => {
-    const formData = {
-      ...data,
-      billToInvoiceDate: formatDateToDDMMYYYY(data.billToInvoiceDate),
-    };
+    const formData = formatNewFormData(data);
     console.table(formData);
   };
 
