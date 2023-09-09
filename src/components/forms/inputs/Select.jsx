@@ -1,23 +1,30 @@
-import { useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
+import { Controller, useFormContext } from "react-hook-form";
 
 export const Select = ({ label, options, id }) => {
-  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const { control } = useFormContext();
 
   return (
     <div>
-      <Listbox value={selectedOption} onChange={setSelectedOption} name={id}>
-        {({ open }) => (
-          <>
-            <Label label={label} />
+      <Controller
+        control={control}
+        name={id}
+        defaultValue={options[0]}
+        render={({ field: { onChange, value } }) => (
+          <Listbox value={value} onChange={onChange}>
+            {({ open }) => (
+              <>
+                <Label label={label} />
 
-            <div className="relative">
-              <Button open={open}>{selectedOption.name}</Button>
-              <Options options={options} />
-            </div>
-          </>
+                <div className="relative">
+                  <Button open={open}>{value.name}</Button>
+                  <Options options={options} />
+                </div>
+              </>
+            )}
+          </Listbox>
         )}
-      </Listbox>
+      />
     </div>
   );
 };
